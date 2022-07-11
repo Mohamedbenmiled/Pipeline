@@ -9,7 +9,7 @@ pipeline {
           }
         }
 
-        stage('') {
+        stage('error') {
           steps {
             warnError(message: 'erruer', catchInterruptions: true) {
               echo 'aa'
@@ -24,6 +24,12 @@ pipeline {
     stage('step2') {
       steps {
         echo 'test'
+      }
+    }
+
+    stage('') {
+      steps {
+        dockerNode(image: 'alpine')
       }
     }
 

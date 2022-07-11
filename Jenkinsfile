@@ -2,8 +2,22 @@ pipeline {
   agent any
   stages {
     stage('step1') {
-      steps {
-        echo 'Pipelinetekhdem'
+      parallel {
+        stage('step1') {
+          steps {
+            echo 'Pipelinetekhdem'
+          }
+        }
+
+        stage('') {
+          steps {
+            warnError(message: 'erruer', catchInterruptions: true) {
+              echo 'aa'
+            }
+
+          }
+        }
+
       }
     }
 
